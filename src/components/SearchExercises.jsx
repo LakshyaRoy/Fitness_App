@@ -23,24 +23,28 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 
   const handleSearch = async () => {
     if (Search) {
-      const exercises = await fetchData(
-        "https://exercisedb.p.rapidapi.com/exercises",
+      const exercisesData = await fetchData(
+        "https://exercisedb.p.rapidapi.com/exercises?limit=100",
         exerciseOptions
       );
-      const searchedExecrises = exercises.filter((exercise) => {
-        return (
-          exercise.name.toLowerCase().includes(Search) ||
-          exercise.target.toLowerCase().includes(Search) ||
-          exercise.equipment.toLowerCase().includes(Search) ||
-          exercise.bodyPart.toLowerCase().includes(Search)
-        );
-      });
-      // console.log("searchedExecrises", searchedExecrises);
+
+      console.log(exercisesData);
+
+      const searchedExercises = exercisesData.filter(
+        (item) =>
+          item.name.toLowerCase().includes(Search) ||
+          item.target.toLowerCase().includes(Search) ||
+          item.equipment.toLowerCase().includes(Search) ||
+          item.bodyPart.toLowerCase().includes(Search)
+      );
+
+      window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
 
       setSearch("");
-      setExercises(searchedExecrises);
+      setExercises(searchedExercises);
     }
   };
+
   return (
     <Stack alignItems={"center"} mt="37px" p="20px" justifyContent={"center"}>
       <Typography
