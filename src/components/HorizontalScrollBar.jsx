@@ -3,11 +3,9 @@ import "swiper/css";
 import { Box } from "@mui/material";
 import BodyCard from "./BodyCard";
 import PropTypes from "prop-types";
-import { register } from "swiper/element/bundle";
-
-register();
-
-const HorizontalScrollBar = ({ data, bodyPart, setBodyPart }) => {
+import ExecrcisesCard from "./ExecrcisesCard";
+const HorizontalScrollBar = ({ data, bodyPart, setBodyPart, BodyParts }) => {
+  console.log("isBodyPart", BodyParts);
   return (
     <Swiper
       spaceBetween={40}
@@ -19,11 +17,15 @@ const HorizontalScrollBar = ({ data, bodyPart, setBodyPart }) => {
       {data.map((item, index) => (
         <SwiperSlide key={index}>
           <Box m={"0 40px"} itemID={item.id || item} title={item.id || item}>
-            <BodyCard
-              item={item}
-              bodyPart={bodyPart}
-              setBodyPart={setBodyPart}
-            />
+            {BodyParts ? (
+              <BodyCard
+                item={item}
+                bodyPart={bodyPart}
+                setBodyPart={setBodyPart}
+              />
+            ) : (
+              <ExecrcisesCard exercise={item} />
+            )}
           </Box>
         </SwiperSlide>
       ))}
@@ -37,4 +39,5 @@ HorizontalScrollBar.propTypes = {
   data: PropTypes.array.isRequired,
   bodyPart: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
   setBodyPart: PropTypes.func.isRequired,
+  isBodyPart: PropTypes.bool,
 };
