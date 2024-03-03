@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 const BodyCard = ({ item, setBodyPart, bodyPart }) => {
   const myRef = useRef();
   // console.log("bodyPart", bodyPart);
+  // console.log("item", item);
   return (
     <Stack
       ref={myRef}

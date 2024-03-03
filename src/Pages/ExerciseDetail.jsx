@@ -48,7 +48,7 @@ const ExerciseDetail = () => {
     fetchExercisesData();
   }, [id]);
 
-  console.log(exerciseVideo);
+  // console.log(exerciseVideo);
 
   return (
     <Box>

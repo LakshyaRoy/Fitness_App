@@ -1,9 +1,9 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Stack, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 
 const ExecrcisesCard = ({ exercise }) => {
+  // console.log(exercise);
   return (
     <Link to={`/exercise/${exercise.id}`} className="exercise-card">
       <img src={exercise.gifUrl} alt={exercise.name} loading="lazy" />
@@ -51,5 +51,8 @@ const ExecrcisesCard = ({ exercise }) => {
 export default ExecrcisesCard;
 
 ExecrcisesCard.propTypes = {
-  exercise: PropTypes.object.isRequired,
+  exercise: PropTypes.oneOfType([
+    PropTypes.object.isRequired,
+    PropTypes.string.isRequired,
+  ]),
 };

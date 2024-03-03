@@ -28,7 +28,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         exerciseOptions
       );
 
-      console.log(exercisesData);
+      // console.log(exercisesData);
 
       const searchedExercises = exercisesData.filter(
         (item) =>
@@ -114,6 +114,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           data={Array.isArray(BodyParts) ? BodyParts : []}
           setBodyPart={setBodyPart}
           bodyPart={bodyPart}
+          BodyParts
         />
       </Box>
     </Stack>

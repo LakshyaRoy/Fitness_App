@@ -6,7 +6,7 @@ import Exercises from "../components/Exercises";
 import PropTypes from "prop-types";
 const Home = () => {
   const [bodyPart, setBodyPart] = useState("all");
-  console.log("bodyPart", bodyPart);
+  // console.log("bodyPart", bodyPart);
 
   const [exercises, setExercises] = useState([]);
   // console.log("exercises", exercises);
